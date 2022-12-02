@@ -6,6 +6,6 @@ The objective of this project is to use a car advertisement dataset as an input 
 
 The results of the EDA analysis on the vehicle dataset can be found under the notebooks folder in this Sprint-4-Project-STD project where a Jupyter notebook (EDA.ipynb) is located and can be opened with VS Code.
 
-The Render web app for this project can be found at the following link: 
+The Render web app for this project can be found on: 
 
 Running the streamlit app locally will require to have the Pandas, Plotly, and Streamlit libraries installed in the local Python environment. In order to run the Streamlit app the cloned repository folder under the environment's terminal must be opened and with the following code: streamlit run app.py.
