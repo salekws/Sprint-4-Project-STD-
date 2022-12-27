@@ -69,4 +69,4 @@ title="Vehicle's average price against vs vehicle's condition", color="price",
 labels={"price": "Average price (USD)", "condition": "Vehicle's condition"})
 fig.update_xaxes(categoryorder='array', categoryarray= ['new', 'like new', 'excellent', 'good', 'fair', 'salvage'])
 fig.update(layout_coloraxis_showscale=False)
-fig.show()
+st.plotly_chart(fig, use_container_width=True)
