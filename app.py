@@ -20,7 +20,7 @@ vehicles_df['is_4wd'] = vehicles_df['is_4wd'].fillna('2wd').astype('str')
 vehicles_df['is_4wd'] = vehicles_df['is_4wd'].replace(['1.0'], '4wd')
 
 #Scatterplot of model year vs price for each vehicle type
-fig = px.scatter(vehicles_df, x="price", y="model_year", color="drivetrain")
+fig = px.scatter(vehicles_df, x="price", y="model_year", color="is_4wd")
 fig.update_layout(xaxis_title="Price", yaxis_title="Model Year")
 st.plotly_chart(fig, use_container_width=True)
 st.write("There are more 4wd vehicles among modern vehicles than older models.") 
@@ -38,12 +38,12 @@ cbox_4wd = st.checkbox('Display of 4wd vehicles', value=True)
 
 #checkbox logic
 if cbox_4wd:
-    pc_df = vehicles_df.loc[vehicles_df['drivetrain'] == '4wd']  
+    pc_df = vehicles_df.loc[vehicles_df['is_4wd'] == '4wd']  
 elif not cbox_4wd:
     pc_df = vehicles_df
 
 #histogram settings    
-fig = px.histogram(pc_df, title='Number of vehicles with specific drivetrain vs. Price', x='price', color='drivetrain', nbins=50, barmode='overlay')
+fig = px.histogram(pc_df, title='Number of vehicles with specific drivetrain vs. Price', x='price', color='is_4wd', nbins=50, barmode='overlay')
 fig.update_layout(xaxis_title="Price", yaxis_title="Number of Vehicles", yaxis_range=[0,5000], xaxis_range=[0,100000])
 # showing the histogram of drivetrain vs price
 st.plotly_chart(fig, use_container_width=True)
