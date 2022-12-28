@@ -50,3 +50,43 @@ st.plotly_chart(fig, use_container_width=True)
 
 #comment on above histogram
 st.write("We can clearly say that 2wd vehicles are larger in number and cheaper in comparison with 4wd vehicles.") 
+
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+
+st.write("Now let's have a look at the average price against each vehicle condition.")
+
+# Chart plot of the average price against the vehicle's condition
+price_condition_df = vehicles_df.groupby('condition')['price'].mean().round(0).astype('int')
+
+fig = px.bar(price_condition_df, y="price",
+title="Vehicle's average price against vs vehicle's condition", color="price",
+labels={"price": "Average price (USD)", "condition": "Vehicle's condition"})
+fig.update_xaxes(categoryorder='array', categoryarray= ['new', 'like new', 'excellent', 'good', 'fair', 'salvage'])
+fig.update(layout_coloraxis_showscale=False)
+st.plotly_chart(fig, use_container_width=True)
+
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+st.write("")
+
+# Chart plot of the vehicle's average price against the car model
+price_model_df = vehicles_df.groupby('model')['price'].mean().round(0).astype('int')
+
+fig = px.bar(price_model_df, y="price",
+title="Vehicle's average price against vs vehicle's model", color="price",
+labels={"price": "Average price (USD)", "condition": "Vehicle's model"})
+fig.update(layout_coloraxis_showscale=False)
+st.plotly_chart(fig, use_container_width=True)
+
+#comment on above bar chart
+st.write("We can clearly say that the car model with the highest average price is the Mercedes-Benz benze sprinter 2500.") 
